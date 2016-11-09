@@ -1,0 +1,81 @@
+unit uFormUtama;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ScktComp, ZConnection;
+
+type
+  TForm1 = class(TForm)
+    Memo1: TMemo;
+    Button1: TButton;
+    Button2: TButton;
+    ClientSocket1: TClientSocket;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Edit3: TEdit;
+    pabxdb: TZConnection;
+    emeralddb: TZConnection;
+    procedure FormActivate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure ConnectDB;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Button1.Enabled := False;
+  Button2.Enabled := True;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Button1.Enabled := True;
+  Button2.Enabled := False;
+end;
+
+procedure TForm1.FormActivate(Sender: TObject);
+var hostn : TStrings;
+begin
+  hostn := TStringList.Create;
+  hostn.LoadFromFile('hostn.txt');
+
+  Edit2.Text := hostn.Strings[0];
+  Edit1.Text := hostn.Strings[2];
+  Edit3.Text := hostn.Strings[3];
+end;
+
+procedure TForm1.ConnectDB;
+begin
+  //
+  pabxdb.HostName := Edit2.Text;
+  pabxdb.User := 'root';
+  pabxdb.Password := 'p3nd3kar';
+  pabxdb.Database := 'pbx';
+  pabxdb.Connect;
+
+  emeralddb.HostName := Edit2.Text;
+  emeralddb.User := 'root';
+  emeralddb.Password := 'p3nd3kar';
+  emeralddb.Database := 'emerald';
+  emeralddb.Connect;
+
+
+end;
+
+end.

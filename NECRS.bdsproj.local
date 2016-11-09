@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/11/09 11:26:33.079.pas,C:\Users\toni\Documents\Borland Studio Projects\Unit1.pas=E:\projects_pabx\NECRS\uFormUtama.pas</Transaction>
+    <Transaction>2016/11/09 11:26:33.079.dfm,C:\Users\toni\Documents\Borland Studio Projects\Unit1.dfm=E:\projects_pabx\NECRS\uFormUtama.dfm</Transaction>
+    <Transaction>2016/11/09 11:26:38.134.bdsproj,C:\Users\toni\Documents\Borland Studio Projects\Project1.bdsproj=E:\projects_pabx\NECRS\NECRS.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>
